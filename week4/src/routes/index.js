@@ -17,7 +17,6 @@ router.get('/file', function(req, res, next) {
   res.json(FILES);
 });
 
-
 router.post('/file', function(req, res, next) {
   const newId = '' + FILES.length;
   const data = req.body;
@@ -25,10 +24,12 @@ router.post('/file', function(req, res, next) {
 
   FILES.push(data);
   res.status(201).json(data);
-});
+})
 
 router.put('/file/:fileId', function(req, res, next) {
   const {fileId} = req.params;
+
+  // const filedId = req.body.fileId;
   const file = FILES.find(entry => entry.id === fileId);
   if (!file) {
     return res.status(404).end(`Could not find file '${fileId}'`);

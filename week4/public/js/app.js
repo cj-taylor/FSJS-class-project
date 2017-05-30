@@ -1,5 +1,3 @@
-
-
 function getFiles() {
   return $.ajax('/api/file')
     .then(res => {
@@ -11,7 +9,6 @@ function getFiles() {
       throw err;
     });
 }
-
 
 function refreshFileList() {
   const template = $('#list-template').html();
